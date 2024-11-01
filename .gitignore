@@ -412,10 +412,10 @@ FodyWeavers.xsd
 .history
 .ionide
 
-ChallengeProject/Final/bin/*
-ChallengeProject/Starter/bin/*
+ChallengeProject/Final/bin/
+ChallengeProject/Final/obj/
 
-ChallengeProject/Final/obj/*
-ChallengeProject/Starter/obj/*
+ChallengeProject/Starter/bin/
+ChallengeProject/Starter/obj/
 
 # End of https://www.toptal.com/developers/gitignore/api/csharp,visualstudiocode

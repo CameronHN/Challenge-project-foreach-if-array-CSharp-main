@@ -20,12 +20,12 @@ This C# console application is designed to:
 */
 int examAssignments = 5;
 
-string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan" };
+string[] studentNames = ["Sophia", "Andrew", "Emma", "Logan"];
 
-int[] sophiaScores = new int[] { 90, 86, 87, 98, 100, 94, 90 };
-int[] andrewScores = new int[] { 92, 89, 81, 96, 90, 89 };
-int[] emmaScores = new int[] { 90, 85, 87, 98, 68, 89, 89, 89 };
-int[] loganScores = new int[] { 90, 95, 87, 88, 96, 96 };
+int[] sophiaScores = [90, 86, 87, 98, 100, 94, 90];
+int[] andrewScores = [92, 89, 81, 96, 90, 89];
+int[] emmaScores = [90, 85, 87, 98, 68, 89, 89, 89];
+int[] loganScores = [90, 95, 87, 88, 96, 96];
 
 int[] studentScores = new int[10];
 
@@ -65,7 +65,10 @@ foreach (string name in studentNames)
 
     int gradedAssignments = 0;
 
+    // The sum of the exam-only score
     decimal sumExamScore = 0;
+
+    // Variable to store the exam score
     decimal examScore = 0;
 
     decimal extraCredit = 0;
@@ -93,11 +96,23 @@ foreach (string name in studentNames)
         }
     }
 
+    /*
+    Extra credit calculation
+    Sum of extra credit score divided by the number of extra credit assignments completed
+    */
     currentExtraCredit = extraCredit / (studentScores.Length - examAssignments);
 
+    // Overall score including extra credit
     overallScore = (((decimal)0.1 * extraCredit) + sumExamScore) / examAssignments;
 
+    /*
+    Exam-only score
+    Sum of the exam score divided by the number of exams completed
+    */
     examScore = sumExamScore / examAssignments;
+
+    // Extra credit points earned
+    extraCreditPoints = (decimal)0.1 * extraCredit / examAssignments;
 
     if (overallScore >= 97)
         currentStudentLetterGrade = "A+";
@@ -137,11 +152,6 @@ foreach (string name in studentNames)
 
     else
         currentStudentLetterGrade = "F";
-
-    // Student         Grade
-    // Sophia:         92.2    A-
-
-    extraCreditPoints = (decimal)0.1 * extraCredit / examAssignments;
 
     Console.WriteLine($"{currentStudent}\t\t{examScore}\t\t{overallScore}\t\t{currentStudentLetterGrade}\t{currentExtraCredit} ({extraCreditPoints}pts)");
 }
